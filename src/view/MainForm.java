@@ -1,6 +1,9 @@
 package view;
 
+import java.io.File;
+import java.util.ArrayList;
 import javax.swing.ImageIcon;
+import javax.swing.JFileChooser;
 
 public class MainForm extends javax.swing.JFrame {
 
@@ -130,6 +133,11 @@ public class MainForm extends javax.swing.JFrame {
         jRadioButton2.setText("lapok összértéke");
 
         jButton3.setText("Mentés");
+        jButton3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton3ActionPerformed(evt);
+            }
+        });
 
         jButton4.setText("Kilépés");
 
@@ -241,6 +249,10 @@ public class MainForm extends javax.swing.JFrame {
         setIconImage(icon.getImage());
     }//GEN-LAST:event_formWindowActivated
 
+    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
+        fileChooser();
+    }//GEN-LAST:event_jButton3ActionPerformed
+
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
@@ -297,4 +309,14 @@ public class MainForm extends javax.swing.JFrame {
     private javax.swing.JRadioButtonMenuItem jRadioButtonMenuItem1;
     private javax.swing.JRadioButtonMenuItem jRadioButtonMenuItem2;
     // End of variables declaration//GEN-END:variables
+
+    private void fileChooser(String cim, ArrayList kiterjesztesek) {
+        JFileChooser fileChooser = new JFileChooser();
+        fileChooser.setCurrentDirectory(new File(System.getProperty("C:/Users/menesi.csaba/Documents/NetBeansProjects/MenesiCs_BlackJackAlap")));
+        int result = fileChooser.showOpenDialog(this);
+        if (result == JFileChooser.APPROVE_OPTION) {
+        File selectedFile = fileChooser.getSelectedFile();
+        //System.out.println("Selected file: " + selectedFile.getAbsolutePath());
+        }
+    }
 }
